@@ -1,5 +1,4 @@
 import React,{Component} from 'react';
-import {bindActionCreators} from 'redux';
 import actions from '../store/actions/counter2';
 import {connect} from 'react-redux';
 //let newActions = bindActionCreators(actions,store.dispatch);

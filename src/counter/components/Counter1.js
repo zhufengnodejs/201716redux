@@ -1,6 +1,4 @@
 import React,{Component} from 'react';
-import {bindActionCreators} from 'redux';
-import store from '../store';
 import actions from '../store/actions/counter1';
 //用来实现连接 连接仓库和我们的组件
 import {connect} from 'react-redux';
