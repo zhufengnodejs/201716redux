@@ -1,1 +1,1 @@
-import './counerv'
+import './counter'

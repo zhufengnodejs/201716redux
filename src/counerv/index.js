@@ -19,3 +19,10 @@ function render(){
     numberDOM.innerHTML = store.getState().number;
 }
 render();
+store.subscribe(render);
+incBtnDOM.addEventListener('click',function(){
+    store.dispatch({type:INCREMENT});
+})
+decBtnDOM.addEventListener('click',function(){
+    store.dispatch({type:DECREMENT});
+})
