@@ -5,8 +5,10 @@ export default class TodoHeader extends Component{
         let code = event.keyCode;
         if(code === ENTER_CODE){
             let value = event.target.value;
-            this.props.addTodo(value);
-            event.target.value = '';
+            if(value != undefined&& value!=''){
+                this.props.addTodo(value);
+                event.target.value = '';
+            }
         }
     }
 

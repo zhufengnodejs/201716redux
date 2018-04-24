@@ -4,21 +4,25 @@ import actions from '../store/actions/todos';
 import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
+import './Todos.css'
 class Todos extends Component{
     render(){
         return (
             <div className="container" style={{marginTop:'20px'}}>
                 <div className="row">
-                    <div className="col-md-8 col-md-offset-2">
+                    <div className="col-md-6 col-md-offset-3">
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <TodoHeader
                                     addTodo = {this.props.addTodo}
+
                                 />
                             </div>
                             <div className="panel-body">
                                 <TodoList
                                     todos={this.props.todos}
+                                    delTodo={this.props.delTodo}
+                                    toggleTodo={this.props.toggleTodo}
                                 />
                             </div>
                             <div className="panel-footer">
