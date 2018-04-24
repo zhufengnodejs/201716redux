@@ -14,8 +14,16 @@ export default function(state=initState,action){
       case types.TOGGLE_TODO:
           return {
               todos:state.todos.map(todo=>{
-                  if(todo.id == action.id)//如果说todo的ID等于action的ID的话
+                  if(todo.id == action.id){
                       todo.completed = !todo.completed;
+                  }//如果说todo的ID等于action的ID的话
+                  return todo;
+              })
+          }
+      case types.TOGGLE_ALL:
+          return {
+              todos:state.todos.map(todo=>{
+                  todo.completed = action.completed;
                   return todo;
               })
           }

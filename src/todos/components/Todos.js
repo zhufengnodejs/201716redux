@@ -23,6 +23,7 @@ class Todos extends Component{
                                     todos={this.props.todos}
                                     delTodo={this.props.delTodo}
                                     toggleTodo={this.props.toggleTodo}
+                                    toggleAll={this.props.toggleAll}
                                 />
                             </div>
                             <div className="panel-footer">

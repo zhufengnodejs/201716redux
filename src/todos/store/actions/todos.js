@@ -10,5 +10,8 @@ export default {
     },
     toggleTodo(id){
         return {type:types.TOGGLE_TODO,id};
+    },
+    toggleAll(completed){
+        return {type:types.TOGGLE_ALL,completed};
     }
 }

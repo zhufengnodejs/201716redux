@@ -1,8 +1,19 @@
 import React,{Component} from 'react';
 export default class TodoList extends Component{
     render(){
+        let allChecked = this.props.todos.length>0&&this.props.todos.every(todo=>todo.completed);
         return (
             <ul className="list-group">
+                <li className="list-group-item">
+                    <div className="checkbox">
+                        <label>
+                            <input
+                                onChange={(event)=>this.props.toggleAll(event.target.checked)}
+                                checked={allChecked}
+                                type="checkbox"/>{allChecked?'全消':'全选'}
+                        </label>
+                    </div>
+                </li>
                 {
                   this.props.todos.map((todo,index)=>(
                       <li className="list-group-item" key={index}>
