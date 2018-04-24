@@ -1,4 +1,4 @@
 import {createStore} from 'redux';
-import todos from './todos';
-let store = createStore(todos);
+import reducers from './reducers';
+let store = createStore(reducers);
 export default store;
