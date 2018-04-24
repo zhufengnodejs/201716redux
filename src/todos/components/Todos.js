@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import actions from '../store/actions/todos';
 import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
+import TodoList from './TodoList';
 class Todos extends Component{
     render(){
         return (
@@ -11,13 +12,17 @@ class Todos extends Component{
                     <div className="col-md-8 col-md-offset-2">
                         <div className="panel panel-default">
                             <div className="panel-heading">
-                                <TodoHeader/>
+                                <TodoHeader
+                                    addTodo = {this.props.addTodo}
+                                />
                             </div>
                             <div className="panel-body">
-                                <TodoList/>
+                                <TodoList
+                                    todos={this.props.todos}
+                                />
                             </div>
                             <div className="panel-footer">
-                                
+
                             </div>
                         </div>
                     </div>
@@ -26,7 +31,16 @@ class Todos extends Component{
         )
     }
 }
+
+/**
+ * 合并后的状态对象
+ {
+     todos：{
+            todos:[{id:Date.now(),text:'买水',completed:false}]
+     }
+ }
+ */
 export default connect(
-    state=>state,
+    state=>state.todos,
     actions
 )(Todos);
