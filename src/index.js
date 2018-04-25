@@ -1,1 +1,1 @@
-import './high'
+import './router'
