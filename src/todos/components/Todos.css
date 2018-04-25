@@ -4,3 +4,7 @@
 .list-group-item:hover button{
     display:inline-block;
 }
+
+.filter-button{
+    margin-left:15px;
+}

@@ -4,16 +4,18 @@ export default class TodoFooter extends Component{
       let unCompleted = this.props.todos.filter(todo=>!todo.completed).length;
       return (
           <div className="row">
-              <div className="col-xs-3">
+              <div className="col-xs-3" style={{lineHeight:'30px'}}>
                   {unCompleted>0&&`有${unCompleted}件未完成事项`}
               </div>
-              <div className="col-xs-7">
-
+              <div className="col-xs-6 ">
+                <button className="btn btn-sm btn-default filter-button">全部</button>
+                <button className="btn btn-sm btn-default filter-button">已完成</button>
+                <button className="btn btn-sm btn-default filter-button">未完成</button>
               </div>
-              <div className="col-xs-2">
+              <div className="col-xs-3">
                 <button
                     onClick={this.props.delAllCompleted}
-                    className="btn btn-danger btn-xs">删除已完成</button>
+                    className="btn btn-danger btn-sm">删除已完成</button>
               </div>
           </div>
       )
