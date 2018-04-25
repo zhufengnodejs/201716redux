@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import actions from '../store/actions/todos';
+import todos_actions from '../store/actions/todos';
+import filter_actions from '../store/actions/filter';
 import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
@@ -31,6 +32,8 @@ class Todos extends Component{
                             <div className="panel-footer">
                                 <TodoFooter
                                     todos={this.props.todos}
+                                    filter={this.props.filter}
+                                    changeFilter={this.props.changeFilter}
                                     delAllCompleted={this.props.delAllCompleted}
                                 />
                             </div>
@@ -64,7 +67,11 @@ export default connect(
                 default:
                     return true;
             }
-        })
+        }),
+        filter:state.filter.filter
     }),
-    actions
+    {
+        ...todos_actions,
+        ...filter_actions
+    }
 )(Todos);
