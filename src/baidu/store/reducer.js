@@ -1,6 +1,6 @@
 import {WORDS} from './action-types';
 let initState = {
-    words:[]
+    words:["联","想"]
 }
 export default function(state=initState,action){
    switch(action.type){
