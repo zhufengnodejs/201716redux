@@ -1,6 +1,6 @@
 import * as types from '../action-types';
 let initState = {
-    todos:[]
+    todos:localStorage.getItem('todos')?JSON.parse(localStorage.getItem('todos')):[]
 }
 // {id:Date.now(),text:'吃饭',completed:false}
 export default function(state=initState,action){

@@ -1,8 +1,15 @@
 import {createStore,applyMiddleware} from 'redux';
 import reducers from './reducers';
-import thunk from 'redux-thunk';
-import promise from 'redux-promise';
-import logger from 'redux-logger';
+let local = function({ dispatch, getState }){
+    return function(next){//=原始的store.dispatch(action)
+        return function(action){
+            next(action);
+            let {todos:{todos}} = getState();
+            localStorage.setItem('todos',JSON.stringify(todos));
+        }
+    }
+}
+
 /*return ({ dispatch, getState }) => next => action => {
     if (typeof action === 'function') {
         return action(dispatch, getState, extraArgument);
@@ -39,7 +46,7 @@ let logger = function({ dispatch, getState }){
         }
     }
 }*/
-let store = createStore(reducers,applyMiddleware(logger,thunk,promise));
+let store = createStore(reducers,applyMiddleware(local));
 /*let dispatch = store.dispatch;
 /!*
 1.手工重写dispatch
