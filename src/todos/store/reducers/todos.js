@@ -27,6 +27,10 @@ export default function(state=initState,action){
                   return todo;
               })
           }
+      case types.DEL_ALL_COMPLETED:
+          return {
+              todos:state.todos.filter(todo=>!todo.completed)
+          }
       default:
           return state;
   }

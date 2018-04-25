@@ -4,6 +4,7 @@ import actions from '../store/actions/todos';
 import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
+import TodoFooter from './TodoFooter';
 import './Todos.css'
 class Todos extends Component{
     render(){
@@ -27,7 +28,10 @@ class Todos extends Component{
                                 />
                             </div>
                             <div className="panel-footer">
-
+                                <TodoFooter
+                                    todos={this.props.todos}
+                                    delAllCompleted={this.props.delAllCompleted}
+                                />
                             </div>
                         </div>
                     </div>

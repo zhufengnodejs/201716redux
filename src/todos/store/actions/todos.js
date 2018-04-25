@@ -13,5 +13,8 @@ export default {
     },
     toggleAll(completed){
         return {type:types.TOGGLE_ALL,completed};
+    },
+    delAllCompleted(){
+        return {type:types.DEL_ALL_COMPLETED};
     }
 }
