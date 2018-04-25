@@ -1,11 +1,11 @@
 import {WORDS} from './action-types';
 let initState = {
-    words:["联","想"]
+    words:[]
 }
 export default function(state=initState,action){
    switch(action.type){
        case WORDS:
-           return {words:action.words};
+           return {words:action.payload};
        default:
            return state;
    }
