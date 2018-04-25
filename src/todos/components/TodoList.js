@@ -17,7 +17,7 @@ export default class TodoList extends Component{
                 {
                   this.props.todos.map((todo,index)=>(
                       <li className="list-group-item" key={index}>
-                          <div class="checkbox">
+                          <div className="checkbox">
                               <label>
                                   <input
                                       onChange={()=>this.props.toggleTodo(todo.id)}
