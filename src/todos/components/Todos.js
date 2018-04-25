@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
 import TodoFooter from './TodoFooter';
-import filters from '../constants/filters';
+import * as filters from '../constants/filters';
 import './Todos.css'
 class Todos extends Component{
     render(){
