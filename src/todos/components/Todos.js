@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
 import TodoFooter from './TodoFooter';
+import filters from '../constants/filters';
 import './Todos.css'
 class Todos extends Component{
     render(){
@@ -46,10 +47,24 @@ class Todos extends Component{
  {
      todos：{
             todos:[{id:Date.now(),text:'买水',completed:false}]
+     },
+     filter:{
+            filter:'ALL'
      }
  }
  */
 export default connect(
-    state=>state.todos,
+    state=>({
+        todos:state.todos.todos.filter(todo=>{
+            switch(state.filter.filter){
+                case filters.COMPLETED:
+                   return todo.completed;
+                case filters.UNCOMPLETED:
+                    return !todo.completed;
+                default:
+                    return true;
+            }
+        })
+    }),
     actions
 )(Todos);
