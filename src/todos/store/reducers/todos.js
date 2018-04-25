@@ -4,12 +4,15 @@ let initState = {
 }
 // {id:Date.now(),text:'吃饭',completed:false}
 export default function(state=initState,action){
+    let todos;
   switch(action.type){//如果是要增加todo的话
       case types.ADD_TODO:
-          return {todos:[...state.todos,{id:Date.now(),text:action.text,completed:false}]};
+          todos = [...state.todos,{id:Date.now(),text:action.text,completed:false}];
+          return {todos};
       case types.DEL_TODO:
+          todos = state.todos.filter(todo=>todo.id!=action.id);
           return {
-              todos:state.todos.filter(todo=>todo.id!=action.id)
+              todos
           }
       case types.TOGGLE_TODO:
           return {
